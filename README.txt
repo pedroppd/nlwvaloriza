@@ -16,4 +16,9 @@ yarn tsc
 - converter para js, para o node poder entender.
 npm install ts-node-dev -d
 
+- install type orm
+npm install typeorm --save
+
+npm install reflect-metadata --save
+
 
