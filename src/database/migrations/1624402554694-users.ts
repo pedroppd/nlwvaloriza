@@ -33,11 +33,6 @@ export class users1624402554694 implements MigrationInterface {
                     name: "updatedAt",
                     type: "timeStamp",
                     default: "now()"
-                },
-                {
-                    name: "deletedAt",
-                    type: "timeStamp",
-                    default: ""
                 }
             ]
         })
