@@ -26,12 +26,13 @@ export class CreateTags1624496773774 implements MigrationInterface {
                     type: "timeStamp",
                     default: "now()"
                 }
-            ]}
-        ));
+            ]
+        })
+        );
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        queryRunner.dropTable("tags");
+        await queryRunner.dropTable("tags");
     }
 
 }

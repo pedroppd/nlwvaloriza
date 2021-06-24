@@ -1,24 +1,24 @@
 import {Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn} from "typeorm";
 import {v4 as uuid} from "uuid";
 
-@Entity()
+@Entity("tags")
 export class Tags {
 
     constructor() {
-        if(!this.uuid){
-            this.uuid = uuid();
+        if(!this.id){
+            this.id = uuid();
         }
     }
 
     @PrimaryColumn()
-    uuid: string;
+    readonly id: string;
 
     @Column()
     name: string;
 
     @CreateDateColumn()
-    createAt: Date;
+    createdAt: Date;
 
     @UpdateDateColumn()
-    updateAt: Date;
+    updatedAt: Date;
 }
