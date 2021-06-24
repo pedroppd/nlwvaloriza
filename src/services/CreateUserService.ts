@@ -11,10 +11,10 @@ export class CreateUserService {
 
     async execute({name, email, admin } : IUserRequest) {
         if(!email){
-            throw  new Error("Email icorrect !")
+            throw  new Error("Email incorrect !")
         }
-        const userRepository = getCustomRepository(UserRepositories);
 
+        const userRepository = getCustomRepository(UserRepositories);
         const userAlreadyExists = await userRepository.findOne({email});
 
         if(userAlreadyExists){

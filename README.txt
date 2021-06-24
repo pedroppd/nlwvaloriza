@@ -21,4 +21,13 @@ npm install typeorm --save
 
 npm install reflect-metadata --save
 
+- migrations commands
+yarn typeorm migration:create -n <migration name>
+yarn typeorm migration:run
+
+- errors
+yarn add express-async-errors
+
+
+
 
