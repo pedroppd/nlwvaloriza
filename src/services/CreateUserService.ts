@@ -5,11 +5,12 @@ export interface IUserRequest{
     name: string;
     email: string;
     admin: boolean;
+    password: string;
 }
 
 export class CreateUserService {
 
-    async execute({name, email, admin } : IUserRequest) {
+    async execute({name, email, admin, password } : IUserRequest) {
         if(!email){
             throw  new Error("Email incorrect !")
         }
@@ -21,7 +22,7 @@ export class CreateUserService {
             throw  new Error("User already exists !")
         }
 
-        const userCreated = userRepository.create({name, email, admin});
+        const userCreated = userRepository.create({name, email, admin, password});
 
         await userRepository.save(userCreated);
 

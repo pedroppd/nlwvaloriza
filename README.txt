@@ -28,6 +28,12 @@ yarn typeorm migration:run
 - errors
 yarn add express-async-errors
 
+- token
+yarn add jsonwebtoken
+yarn add @types/jsonwebtoken
+//criptografando a senha
+yarn add bcryptjs
+
 
 
 
