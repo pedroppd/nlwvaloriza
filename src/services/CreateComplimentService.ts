@@ -2,27 +2,39 @@ import {getCustomRepository} from "typeorm";
 import {ComplimentsRepository} from "../repositories/ComplimentsRepository";
 import {UserRepository} from "../repositories/UserRepository";
 
-export interface ComplimentRequest{
-    tagId: string,
-    userSender,
-    userReceive: string,
+export interface IComplimentRequest{
+    tag_id: string,
+    user_sender: string,
+    user_receiver: string,
     message: string
 }
-export class CreateCompliment{
-    async execute(compliment: ComplimentRequest){
+
+export class CreateComplimentService {
+    async execute({
+                      tag_id,
+                      user_sender,
+                      user_receiver,
+                      message
+                  } : IComplimentRequest){
+
         const repositoryCompliments = getCustomRepository(ComplimentsRepository);
         const repositoryUsers = getCustomRepository(UserRepository);
 
-        if(compliment.userSender === compliment.userReceive){
+        if(user_sender === user_receiver){
             throw new Error('Cannot create a compliment for yourself')
         }
 
-        const userExist = await repositoryUsers.findOne(compliment.userReceive);
+        const userExist = await repositoryUsers.findOne(user_receiver);
         if(!userExist){
             throw new Error('Receiver user is invalid')
         }
 
-       const complimentCreated =  repositoryCompliments.create(compliment);
+       const complimentCreated = repositoryCompliments.create({
+           tag_id,
+           user_sender,
+           user_receiver,
+           message
+       });
 
        await repositoryCompliments.save(complimentCreated);
 
