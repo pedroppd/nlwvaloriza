@@ -36,7 +36,7 @@ yarn add bcryptjs
 
 //transformar classe
 yarn add class-transformer
-
+//Exclude() remove do json(Não mostra na listagem)
 
 
 
