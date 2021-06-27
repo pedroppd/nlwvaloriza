@@ -7,16 +7,17 @@ export class CreateComplimentsController{
 
        const {
            tag_id,
-           user_sender,
            user_receiver,
            message
        }  = request.body as IComplimentRequest;
+       
+      const user_id = request.user_id;
 
        const complementService = new CreateComplimentService();
 
        const result = complementService.execute({
            tag_id,
-           user_sender,
+           user_sender: user_id,
            user_receiver,
            message
        });

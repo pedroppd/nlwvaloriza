@@ -34,6 +34,9 @@ yarn add @types/jsonwebtoken
 //criptografando a senha
 yarn add bcryptjs
 
+//transformar classe
+yarn add class-transformer
+
 
 
 

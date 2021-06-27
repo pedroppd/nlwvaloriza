@@ -3,6 +3,7 @@ import {CreateUserController} from "./controllers/CreateUserController";
 import {CreateTagController} from "./controllers/CreateTagController";
 import {isAuthorize} from "../middlewares/isAuthorize";
 import {CreateComplimentsController} from "./controllers/CreateComplimentsController";
+import {isAuthenticated} from "../middlewares/isAuthenticated";
 
 export const router = Router();
 
@@ -15,4 +16,4 @@ router.use(isAuthorize)
 router.post('/users', userController.handles)
 router.post('/tags', isAuthorize, tagController.handles)
 router.post('/login', authenticateUserController.handles)
-router.post('/compliments', complimentsController.handles)
+router.post('/compliments', isAuthenticated, complimentsController.handles)
